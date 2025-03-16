@@ -34,3 +34,19 @@ class TorreDeHanoi {
  * @param destino Poste de destino
  * @param auxiliar Poste auxiliar
  */
+private static void resolverHanoi(int n, char origen, char destino, char auxiliar) {
+        if (n == 1) {
+            System.out.println("Mover disco 1 de " + origen + " a " + destino);
+            return;
+        }
+
+        // Mover n-1 discos de origen a auxiliar, usando destino como apoyo
+        resolverHanoi(n - 1, origen, auxiliar, destino);
+
+        // Mover el disco restante de origen a destino
+        System.out.println("Mover disco " + n + " de " + origen + " a " + destino);
+
+        // Mover los n-1 discos de auxiliar a destino, usando origen como apoyo
+        resolverHanoi(n - 1, auxiliar, destino, origen);
+    }
+}
