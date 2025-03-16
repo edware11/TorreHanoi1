@@ -14,3 +14,23 @@ class TorreDeHanoi {
                 if (n <= 0) {
                     throw new IllegalArgumentException("El número de discos debe ser mayor a cero.");
                 }
+                break;
+            } catch (InputMismatchException e) {
+                System.out.println("Error: Ingrese un número entero válido.");
+                scanner.next(); // Limpiar buffer
+            } catch (IllegalArgumentException e) {
+                System.out.println("Error: " + e.getMessage());
+            }
+        }
+
+        System.out.println("\nSecuencia de movimientos para resolver la Torre de Hanoi:");
+        resolverHanoi(n, 'A', 'C', 'B');
+    }
+
+/**
+ * Método recursivo para resolver la Torre de Hanoi.
+ * @param n Número de discos
+ * @param origen Poste de origen
+ * @param destino Poste de destino
+ * @param auxiliar Poste auxiliar
+ */
